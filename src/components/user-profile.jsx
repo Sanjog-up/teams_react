@@ -1,10 +1,11 @@
 //! component  
 
-const UserProfile = () => {
+const UserProfile = ({user }) => {
+  console.log(user);
   return (
     <div>
-      <p>Name: John</p>
-      <p>Email: john@gmail.com</p>
+      <p>Name: {user.name}</p>
+      <p>Email: {user.email}</p>
     </div>
   )
 }
