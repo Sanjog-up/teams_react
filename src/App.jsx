@@ -7,11 +7,17 @@ import UserProfile from './components/user-profile';
 import Greet from './components/greet';
 import Button from './components/button';
 import UserList from './components/user-list';
+import ShowCount from './components/show.component';
+import LoginFormComponent from './components/form-component';
 
 function App() {
   const onClick = () => {
     console.log("button clicked")
   }
+
+const [count, setCount] = useState(0);
+const [email, setEmail] = useState("");
+
 let x = 10;
 let users = [{name: "John",email: "john@example.com"}, {name: "Jane",email: "jane@example.com"}, {name: "Bob",email: "bob@example.com"}, {name: "Alice",email: "alice@example.com"}];
 // a ->b
@@ -33,13 +39,28 @@ const Admin = () => {
 const User = () => {
   return <h1>This is User</h1>
 }
+
+// let count = 0;
+
+console.log("rerender app component");
+
 const isAdmin = true;
+
   return (
-    <main>
-      <Greet name="John" age = {26} />
+    <main id = {"asf"} className= "abc">
+      <button onClick={()=> {
+        setCount(count + 1);
+        // count ++;
+      }}>
+        Increase {count}
+      </button>
+      <p>{email}</p>
+
+      {/* <Greet name="John" age = {26} /> */}
       <Greet name="Jane" age = {30} />
       <Greet name="Bob" age = {35} />
       <Greet />
+      <ShowCount count = {count} />
       <p>{x}</p>
       <li>Functional component</li>
       <li>todo: props</li>
@@ -66,6 +87,28 @@ const isAdmin = true;
     {isAdmin ? <Admin /> : <User />}
     {isAdmin && <Admin />}
     <p>{isAdmin ? "Hello Admin" : "Hello User"}</p>
+
+
+    <input 
+    // input change event 
+    onChange={(e) => {
+      // console.log(e.target.value);
+      setEmail(e.target.value);
+    }}
+    type="text" 
+    placeholder='Enter your name' 
+    name= "text"
+    />
+    <input type="text" placeholder='Enter your name' name= "text"/>
+    <input type= "checkbox"/>
+    <input type="range" min = {0} max = {100} />
+    <input type="date"/>
+    <input type="file"/>
+    <input type = "password"/>
+    <input type = "email"/>
+    
+    <LoginFormComponent />
+
     </main>
   );
 
