@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
@@ -9,6 +9,7 @@ import Button from './components/button';
 import UserList from './components/user-list';
 import ShowCount from './components/show.component';
 import LoginFormComponent from './components/form-component';
+import { useEffect, useRef } from 'react';
 
 function App() {
   const onClick = () => {
@@ -44,16 +45,63 @@ const User = () => {
 
 console.log("rerender app component");
 
+// const add = () => {
+//   useState();
+// }
+// if(true){
+//   useState();
+// }
+
 const isAdmin = true;
+
+// useEffect(() => {
+//   console.log("effect", count);
+
+// cleanup function
+//   return () => {
+//     console.log("cleanup");
+//   };
+// }, [count, email]);
+
+
+// useRef
+// Dom ref
+// const buttonRef = useRef(null);
+
+// useEffect(() => {
+//   console.log(buttonRef.current);
+//   buttonRef.current.style.backgroundColor = "red";
+//   buttonRef.current.style.color = "white";
+// }, [count]);
+
+
+//* manage state w/o rerendering   
+const countRef = useRef(0);
+
+const result = useMemo(() => {
+  console.log("calculating");
+  for(let i =0; i < 9000000000; i++){}
+return 1000 * count;
+}, [count]);
 
   return (
     <main id = {"asf"} className= "abc">
-      <button onClick={()=> {
+      <button 
+      // ref={buttonRef}
+       onClick={()=> {
         setCount(count + 1);
+        // countRef.current++;
         // count ++;
-      }}>
-        Increase {count}
+        // console.log("on click ", count);
+      }}> 
+        Increase Count
       </button>
+      <ShowCount count = {count} />
+
+      <p>res: {result}</p>
+
+
+      
       <p>{email}</p>
 
       {/* <Greet name="John" age = {26} /> */}
