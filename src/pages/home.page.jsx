@@ -80,7 +80,7 @@ const callback = useCallback(()=>{
 }, [count]); 
 
   return (
-    <main id = {"asdf"} className= {"abc"}>
+    <main id = {"asdf"} className= "page">
       <h1>Home Page</h1>
       {/* <button
         // ref={buttonRef}

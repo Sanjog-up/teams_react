@@ -17,6 +17,10 @@
   }
 }
 
+.page {
+    min-height: 100vh;
+}
+
 .hero {
   position: relative;
 
@@ -27,6 +31,8 @@
     margin: 0 auto;
   }
 
+ 
+  
   .base {
     width: 170px;
     position: relative;
