@@ -7,19 +7,27 @@ import {BrowserRouter as Router, Routes, Route} from "react-router";
 import NotfoundPage from "./pages/notfound.page";
 import AdminDashboard from "./pages/adminDashboard.page";
 import ProductDetailPage from "./pages/productdetail.page";
+import ClientLayount from "../layouts/client.layount";
 
 const App = () => {
   return (
   <main>
     <Router>
       <Routes>
+        <Route path ="/" element={<ClientLayount/>}>
+        {/*  */}
+          
         <Route path= "/" element= {<HomePage />} />
         <Route path = "/about" element= {<AboutPage />} />
         <Route path = "/contact" element= {<ContactPage/>} />
         <Route path = "/service" element= {<ServicePage/>} />
-        <Route path= "*" element={<NotfoundPage/> }/>
-        <Route path= "/admin/dashboard" element={<AdminDashboard/> }/>
         <Route path= "/products/:id" element={<ProductDetailPage/> }/>
+        <Route path= "*" element={<NotfoundPage/> }/>
+
+        </Route>
+        
+        <Route path= "/admin/dashboard" element={<AdminDashboard/> }/>
+
       </Routes>
     </Router> 
   </main>

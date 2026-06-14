@@ -3,6 +3,8 @@ import Button from '../components/button';
 import ShowCount from '../components/show.component';
 import LoginFormComponent from '../components/form-component';
 import React from 'react';
+import Navbar from '../components/navbar';
+import Footer from '../components/footer';
 
 function  HomePage() {
   const [count, setCount] = useState(0);
@@ -81,6 +83,7 @@ const callback = useCallback(()=>{
 
   return (
     <main id = {"asdf"} className= "page">
+      <Navbar />
       <h1>Home Page</h1>
       {/* <button
         // ref={buttonRef}
@@ -191,3 +194,5 @@ export default HomePage;
 // css selection:
 // id selector -> # id_name
 // universal -> *
+
+//* box model, flex-box, grid 
